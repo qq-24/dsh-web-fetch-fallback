@@ -12,6 +12,8 @@
   "files": [
     "index.mjs",
     "lib",
+    "test",
+    "tools",
     "cordis.patch.yml",
     "README.md",
     "README.en.md",
