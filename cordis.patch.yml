@@ -1,0 +1,20 @@
+# dsh-web-fetch-fallback bundle patch.
+# - insert: 是 bundle 层的写法（顶层 - id: 会被当成 id 定向覆盖而报 entry not found）。
+# 只插入本插件条目。插件包装 ctx.web.fetch 实例方法，不修改 - id: web 的
+# searchProvider / fetchProvider，因此与任何现有 provider 选择配置零冲突。
+- insert:
+    - id: dsh-web-fetch-fallback
+      name: dsh-web-fetch-fallback
+      config:
+        enabled: true
+        timeoutMs: 30000
+        maxResponseBytes: 5000000
+        maxBodyChars: 100000
+        maxRedirects: 5
+        fallbackOnError: true
+        fallbackOnStatus: true
+        fallbackOnEmpty: true
+        logFallback: true
+        userAgent: "dsh-web-fetch-fallback/1.0 (+https://github.com/qq-24/dsh-web-fetch-fallback)"
+        proxyUrl: ""
+        localOnly: false
